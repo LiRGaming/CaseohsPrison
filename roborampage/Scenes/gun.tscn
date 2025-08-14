@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c26ggn0do7ws4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6t5aa"]
+albedo_color = Color(0.336558, 0.395596, 9.62615e-08, 1)
+
+[node name="Gun" type="CSGCylinder3D"]
+transform = Transform3D(1.00863, 0, 0, 0, -0.0181487, -1.00847, 0, 1.00847, -0.0181487, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_6t5aa")
+cast_shadow = 0
+radius = 0.126953
+height = 0.74707
+
+[node name="GunTip" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -9.12696e-08, 0, 9.12696e-08, 1, 0, -0.281425, -0.00175217)
+radius = 0.0922852
+height = 0.705139
