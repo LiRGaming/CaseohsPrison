@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://kejcglll5qpf"]
+
+[ext_resource type="Script" uid="uid://dt3tnrmp51eqg" path="res://Enemy/enemy.gd" id="1_px1sc"]
+[ext_resource type="Texture2D" uid="uid://kwrvbn8bofbu" path="res://Materials/herobrine-did-appear-in-the-movie-v0-tif3o2ji38ue1.webp" id="2_px1sc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_am0pq"]
+albedo_color = Color(0.0410977, 0.290535, 0.0708995, 1)
+albedo_texture = ExtResource("2_px1sc")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_am0pq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eqilm"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_px1sc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.987927, 0.0085226, 0.154685, 0.00855773, 0.999963, -0.000438814, -0.154683, 0.000890243, -0.987964, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_am0pq")
+mesh = SubResource("CapsuleMesh_am0pq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_eqilm")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true

@@ -1,0 +1,312 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjfswfuuvvi1y"]
+
+[ext_resource type="Texture2D" uid="uid://g73op26dmjq6" path="res://Materials/brickwallgrey.jpg" id="1_2b6ht"]
+[ext_resource type="PackedScene" uid="uid://ckjm47c8y7tmh" path="res://Scenes/player.tscn" id="1_d7bho"]
+[ext_resource type="Texture2D" uid="uid://d125h8oqf5ihv" path="res://Materials/brickwallwhite.jpg" id="3_koc8j"]
+[ext_resource type="Texture2D" uid="uid://ci0cdfovg8o4d" path="res://Materials/caseohface.png" id="4_wpw8k"]
+[ext_resource type="Texture2D" uid="uid://b35c0kf05x373" path="res://Materials/blueclothing.webp" id="5_j2wlq"]
+[ext_resource type="Texture2D" uid="uid://bikpoveat0gsi" path="res://Materials/blackclothing.webp" id="6_6yop6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cyy3s"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_d7bho"]
+sky_material = SubResource("ProceduralSkyMaterial_cyy3s")
+
+[sub_resource type="Environment" id="Environment_2b6ht"]
+background_mode = 2
+sky = SubResource("Sky_d7bho")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0mvb"]
+albedo_texture = ExtResource("1_2b6ht")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2tkr"]
+albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5h6m"]
+albedo_texture = ExtResource("3_koc8j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koc8j"]
+albedo_texture = ExtResource("3_koc8j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3aevr"]
+albedo_texture = ExtResource("4_wpw8k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdw8u"]
+albedo_texture = ExtResource("5_j2wlq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a51xs"]
+albedo_texture = ExtResource("6_6yop6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpw8k"]
+albedo_color = Color(0.67069, 0.67069, 0.67069, 1)
+albedo_texture = ExtResource("3_koc8j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2wlq"]
+albedo_texture = ExtResource("3_koc8j")
+
+[node name="Sandbox" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2b6ht")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_y0mvb")
+use_collision = true
+size = Vector3(80, 1, 80)
+material = SubResource("StandardMaterial3D_s2tkr")
+
+[node name="Wall1" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0222301, 7.1869, -38.2848)
+size = Vector3(58.5709, 13.3726, 3.34326)
+
+[node name="Wall1Pillar1" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6966, 9.67292, -33.9046)
+size = Vector3(12.6527, 18.3447, 12.3844)
+
+[node name="Wall1Pillar2" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6966, 9.67292, 33.8699)
+size = Vector3(12.6527, 18.3447, 12.3844)
+
+[node name="Wall1Pillar3" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6838, 9.67292, 33.8699)
+size = Vector3(12.6527, 18.3447, 12.3844)
+
+[node name="Wall1Pillar4" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6838, 9.67292, -33.7364)
+size = Vector3(12.6527, 18.3447, 12.3844)
+
+[node name="Wall2" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0273075, 7.1869, 38.3271)
+size = Vector3(58.6239, 13.3726, 3.34326)
+
+[node name="Wall3" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(-0.00525338, 0, -0.999986, 0, 1, 0, 0.999986, 0, -0.00525338, -38.2198, 7.15213, -0.066463)
+size = Vector3(62.0097, 13.4422, 3.34326)
+
+[node name="Wall4" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(0.00195481, 0, -0.999998, 0, 1, 0, 0.999998, 0, 0.00195481, 38.2397, 6.97751, -0.0835137)
+size = Vector3(61.8751, 13.3726, 3.34326)
+
+[node name="Player" parent="." instance=ExtResource("1_d7bho")]
+transform = Transform3D(-0.999999, 0, -0.00148347, 0, 1, 0, 0.00148347, 0, -0.999999, 0, 1, -26.7203)
+
+[node name="StaturePlatform" type="CSGCylinder3D" parent="."]
+material_override = SubResource("StandardMaterial3D_s5h6m")
+use_collision = true
+radius = 5.341
+height = 1.0
+
+[node name="StatuePlatform2" type="CSGCylinder3D" parent="StaturePlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669392, 0)
+radius = 4.682
+height = 0.361
+
+[node name="StatueParkour" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4662, 0.271452, 0.143423)
+material_override = SubResource("StandardMaterial3D_koc8j")
+use_collision = true
+size = Vector3(7, 0.611, 0.726074)
+
+[node name="StatueParkour2" type="CSGBox3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26999, 0.88149)
+use_collision = true
+size = Vector3(7, 1.15098, 1.03516)
+
+[node name="StatueParkour3" type="CSGBox3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145779, 0.54718, 1.89885)
+use_collision = true
+size = Vector3(7, 1.72448, 1)
+
+[node name="StatueParkour4" type="CSGBox3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145779, 0.802033, 2.8965)
+use_collision = true
+size = Vector3(7, 2.23419, 1)
+
+[node name="StatueParkour5" type="CSGBox3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145779, 1.06746, 5.48232)
+use_collision = true
+size = Vector3(7, 2.76504, 4.16223)
+
+[node name="StatueParkour6" type="CSGBox3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6372, 0.00354481, 0.0286185)
+use_collision = true
+size = Vector3(7, 0.611, 0.726074)
+
+[node name="StatueParkour7" type="CSGBox3D" parent="StatueParkour/StatueParkour6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26999, 0.88149)
+use_collision = true
+size = Vector3(7, 1.15098, 1.03516)
+
+[node name="StatueParkour8" type="CSGBox3D" parent="StatueParkour/StatueParkour6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145779, 0.54718, 1.89885)
+use_collision = true
+size = Vector3(7, 1.72448, 1)
+
+[node name="StatueParkour9" type="CSGBox3D" parent="StatueParkour/StatueParkour6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145779, 0.802033, 2.8965)
+use_collision = true
+size = Vector3(7, 2.23419, 1)
+
+[node name="StatueParkour10" type="CSGBox3D" parent="StatueParkour/StatueParkour6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145779, 1.06746, 5.48232)
+use_collision = true
+size = Vector3(7, 2.76504, 4.16223)
+
+[node name="StatueParkour11" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3075, 9.14461)
+radius = 0.846
+height = 4.61499
+
+[node name="StatueParkour12" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58906, 1.62445, 12.5582)
+radius = 0.846
+height = 5.2489
+
+[node name="StatueParkour13" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32301, 1.95018, 14.0272)
+radius = 0.846
+height = 5.90036
+
+[node name="StatueParkour14" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27364, 2.40453, 14.0272)
+radius = 0.846
+height = 6.80907
+
+[node name="StatueParkour15" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6489, 1.3075, 9.14461)
+radius = 0.846
+height = 4.61499
+
+[node name="StatueParkour16" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5699, 1.62445, 12.5582)
+radius = 0.846
+height = 5.2489
+
+[node name="StatueParkour17" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.489, 1.95018, 14.0272)
+radius = 0.846
+height = 5.90036
+
+[node name="StatueParkour18" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6216, 2.40453, 14.0272)
+radius = 0.846
+height = 6.80907
+
+[node name="StatueParkour19" type="CSGCylinder3D" parent="StatueParkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4732, 2.01721, 14.0272)
+radius = 2.551
+height = 9.32934
+
+[node name="StatueHead" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.999999, -0.00152797, 0.000434796, 0.00152805, -0.999999, 0.000187427, 0.00043451, 0.000188091, 1, -0.00854649, 6.93721, -1.10665e-05)
+material_override = SubResource("StandardMaterial3D_3aevr")
+use_collision = true
+size = Vector3(1.28052, 1.15771, 1)
+
+[node name="StatueHead12" type="CSGBox3D" parent="StatueHead"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, -1.72611, 3.17887, 0.0314299)
+material_override = SubResource("StandardMaterial3D_3aevr")
+use_collision = true
+size = Vector3(0.418457, 0.810738, 1.06006)
+
+[node name="StatueHead13" type="CSGBox3D" parent="StatueHead"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, 1.8464, 3.18433, 0.0298765)
+material_override = SubResource("StandardMaterial3D_3aevr")
+use_collision = true
+size = Vector3(0.418457, 0.810738, 1.06006)
+
+[node name="StatueHead2" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.999999, -0.00152797, 0.000434796, 0.00152805, -0.999999, 0.000187427, 0.00043451, 0.000188091, 1, -0.00566396, 7.62163, 0.0330403)
+material_override = SubResource("StandardMaterial3D_xdw8u")
+use_collision = true
+size = Vector3(1.53656, 0.196716, 1.06592)
+
+[node name="StatueHead3" type="CSGBox3D" parent="StatueHead2"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, -0.696855, 0.67529, -0.0325061)
+material_override = SubResource("StandardMaterial3D_xdw8u")
+use_collision = true
+size = Vector3(0.13855, 1.17606, 1)
+
+[node name="StatueHead4" type="CSGBox3D" parent="StatueHead2"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, 0.702477, 0.677428, -0.0331146)
+material_override = SubResource("StandardMaterial3D_xdw8u")
+use_collision = true
+size = Vector3(0.13855, 1.17606, 1)
+
+[node name="StatueHead5" type="CSGBox3D" parent="StatueHead2"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, 0.00071167, 0.677215, 0.497207)
+material_override = SubResource("StandardMaterial3D_xdw8u")
+use_collision = true
+size = Vector3(1.53868, 1.17606, 0.0649414)
+
+[node name="StatueHead6" type="CSGBox3D" parent="StatueHead2"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, 0.0617396, 2.36626, -0.000329897)
+material_override = SubResource("StandardMaterial3D_xdw8u")
+use_collision = true
+size = Vector3(3.9916, 2.21979, 1.05933)
+
+[node name="StatueHead7" type="CSGBox3D" parent="StatueHead2"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, 0.028434, 2.74025, -0.584551)
+material_override = SubResource("StandardMaterial3D_xdw8u")
+use_collision = true
+size = Vector3(2.70455, 1.46493, 0.66077)
+
+[node name="StatueHead8" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.999999, -0.00152797, 0.000434796, 0.00152805, -0.999999, 0.000187427, 0.00043451, 0.000188091, 1, 0.964738, 3.0257, 0.0363266)
+material_override = SubResource("StandardMaterial3D_a51xs")
+use_collision = true
+size = Vector3(0.571694, 2.23698, 1.06514)
+
+[node name="StatueHead9" type="CSGBox3D" parent="StatueHead8"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, 2.03688, 0.00296164, -0.0039162)
+material_override = SubResource("StandardMaterial3D_a51xs")
+use_collision = true
+size = Vector3(0.576848, 2.23698, 1.059)
+
+[node name="StatueHead10" type="CSGBox3D" parent="StatueHead8"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, 2.03591, 1.65141, -0.209121)
+material_override = SubResource("StandardMaterial3D_a51xs")
+use_collision = true
+size = Vector3(0.576848, 1.0606, 1.46917)
+
+[node name="StatueHead11" type="CSGBox3D" parent="StatueHead8"]
+transform = Transform3D(1, 1.20075e-10, 0, 3.90088e-12, 1, 0, 2.91038e-11, 1.45519e-11, 1, 0.00115025, 1.64733, -0.199449)
+material_override = SubResource("StandardMaterial3D_a51xs")
+use_collision = true
+size = Vector3(0.576848, 1.05865, 1.46917)
+
+[node name="Barricade" type="CSGBox3D" parent="."]
+transform = Transform3D(0.833886, 0, -0.551937, 0, 1, 0, 0.551937, 0, 0.833886, 7.43476, 1.09639, -10.2989)
+material_override = SubResource("StandardMaterial3D_wpw8k")
+use_collision = true
+size = Vector3(2.83887, 2.19751, 0.203003)
+
+[node name="Barricade2" type="CSGBox3D" parent="Barricade"]
+transform = Transform3D(0.522499, 0, 0.85264, 0, 1, 0, -0.85264, 0, 0.522499, -14.176, 0, 9.38289)
+size = Vector3(2.83887, 2.19751, 0.203003)
+
+[node name="Barricade3" type="CSGBox3D" parent="Barricade"]
+transform = Transform3D(0.599024, 0, -0.800731, 0, 1, 0, 0.800731, 0, 0.599024, -22.1222, 0, 30.875)
+size = Vector3(2.83887, 2.19751, 0.203003)
+
+[node name="Barricade4" type="CSGBox3D" parent="Barricade"]
+transform = Transform3D(-0.868631, 0, 0.495459, 0, 1, 0, -0.495459, 0, -0.868631, 23.8012, 0, 0.478975)
+size = Vector3(2.83887, 2.19751, 0.203003)
+
+[node name="Barricade5" type="CSGBox3D" parent="Barricade"]
+transform = Transform3D(0.289032, 0, -0.957319, 0, 1, 0, 0.957319, 0, 0.289032, 15.0186, 0, 36.1096)
+size = Vector3(2.83887, 2.19751, 0.203003)
+
+[node name="Platform1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.3744, 2.33563, -20.9442)
+material_override = SubResource("StandardMaterial3D_j2wlq")
+size = Vector3(8.10179, 4.69641, 13.4512)
